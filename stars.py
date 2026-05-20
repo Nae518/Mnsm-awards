@@ -25,8 +25,8 @@ with col3:
 
 
 # If there are spins...
-st.header("Bonus Spins")
-with st.expander("Wheel"):
+st.header("Spins")
+with st.expander("Wheel Bonuses"):
 
     st.subheader("Stars")
     col1, col2, col3 = st.columns(3)
