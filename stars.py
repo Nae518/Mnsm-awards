@@ -7,6 +7,7 @@ if st.button("Reset All", type="primary", shortcut="Backspace"):
     st.session_state.w = 0
     st.session_state.m = 0
     st.session_state.a = 0
+    st.session_state.d = 0
     st.session_state.w2 = 0
     st.session_state.w3 = 0
     st.session_state.ten = 0
@@ -14,7 +15,7 @@ if st.button("Reset All", type="primary", shortcut="Backspace"):
     st.session_state.d4 = 0
 
 st.header("Pages")
-col1, col2, col3 = st.columns(3)
+col1, col2, col3, col4 = st.columns(4)
 
 with col1:
     w = st.number_input("White Pages", min_value=0, step=1, key="w")
@@ -22,6 +23,8 @@ with col2:
     m = st.number_input("Mastery Checks", min_value=0, step=1, key="m")
 with col3:
     a = st.number_input("Assessment Pages", min_value=0, step=1, key="a")
+with col4:
+    d = st.number_input("Dice Roll", min_value=0, step=1, key="d")
 
 
 # If there are spins...
@@ -40,7 +43,7 @@ with st.expander("Wheel Bonuses"):
 
     w_coeff = max(1, 2*w2 + 3*w3)
 
-    stars_base = w_coeff*w + 5*m + 2*a + 10*ten
+    stars_base = w_coeff*w + 5*m + 2*a + 10*ten + d
 
     st.subheader("Cards")
     col4, col5 = st.columns(2)
