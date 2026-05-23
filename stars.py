@@ -1,9 +1,4 @@
-# To run: streamlit run stars.py
-
-base="dark"
-primaryColor="forestGreen"
-
-primaryColor="darkGoldrod"
+# To run locally: streamlit run stars.py
 
 import streamlit as st
 
@@ -110,4 +105,3 @@ con_cards, con_stars = divmod(stars_base, level_stars)
 col1, col2 = st.columns(2)
 col1.metric("Stars", con_stars)
 col2.metric("Cards", cards_base + con_cards)
-
