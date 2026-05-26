@@ -26,8 +26,23 @@ with col2:
     m = st.number_input("Mastery Checks", min_value=0, step=1, key="m")
 with col3:
     a = st.number_input("Assessment Pages", min_value=0, step=1, key="a")
+
+pages = w + m + a
+
+if pages < 5:
+    dice = ":orange[**Dice Roll**]"
+elif pages in [5, 6] or pages > 12:
+    dice = ":red[**Dice Roll**]"
+elif pages in [7, 8]:
+    dice = ":yellow[**Dice Roll**]"
+elif pages in [9, 10]:
+    dice = ":green[**Dice Roll**]"
+elif pages in [11, 12]:
+    dice = ":blue[**Dice Roll**]"
+
 with col4:
-    d = st.number_input("Dice Roll", min_value=0, step=1, key="d")
+    d = st.number_input(dice, min_value=0, step=1, key="d")
+
 
 # If there are spins...
 st.header("Bonuses")
@@ -76,7 +91,7 @@ with st.expander("Wheel Spins"):
     with col4:
         free = st.number_input("Free Card", min_value=0, step=1, key="free")
     with col5:
-        d4 = st.number_input("D4 for Cards (Put Rolled Number)", min_value=0, key="d4")
+        d4 = st.number_input(":orange[D4 for Cards] *(Put Rolled Number)*", min_value=0, key="d4")
 
     cards_base = d4 + free
 
